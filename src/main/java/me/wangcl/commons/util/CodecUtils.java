@@ -64,4 +64,14 @@ public class CodecUtils {
 		return Base64.encodeBase64String(binaryData);
 	}
 
+	/**
+	 * 将base64字节数组进行解码
+	 *
+	 * @param base64Data
+	 * @return
+	 */
+	public static byte[] decodeBase64(byte[] base64Data) {
+		return Base64.decodeBase64(base64Data);
+	}
+
 }
