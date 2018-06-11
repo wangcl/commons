@@ -1,6 +1,7 @@
 package me.wangcl.commons.util;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.UnsupportedEncodingException;
 
@@ -14,7 +15,7 @@ public class CodecUtils {
 	/**
 	 * 将字符串按指定编码转换成字节数组。
 	 *
-	 * @param s 字符串
+	 * @param s       字符串
 	 * @param charset 字符编码
 	 * @return 字节数组
 	 */
@@ -36,7 +37,7 @@ public class CodecUtils {
 	/**
 	 * 将字符串进行base64编码
 	 *
-	 * @param data 待加密字符串
+	 * @param data    待加密字符串
 	 * @param charset 字符编码
 	 * @return
 	 */
@@ -72,6 +73,28 @@ public class CodecUtils {
 	 */
 	public static byte[] decodeBase64(byte[] base64Data) {
 		return Base64.decodeBase64(base64Data);
+	}
+
+	/**
+	 * 将字节数组进行md5编码
+	 *
+	 * @param data
+	 * @return
+	 */
+	public static byte[] md5(byte[] data) {
+		return DigestUtils.md5(data);
+	}
+
+	/**
+	 * 将字符串按指定的字符集进行md5编码，返回16进制字符串
+	 *
+	 * @param data
+	 * @param charset
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public static String md5Hex(String data, String charset) {
+		return DigestUtils.md5Hex(getBytes(data, charset));
 	}
 
 }
