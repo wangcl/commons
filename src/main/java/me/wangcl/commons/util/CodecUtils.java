@@ -97,4 +97,25 @@ public class CodecUtils {
 		return DigestUtils.md5Hex(getBytes(data, charset));
 	}
 
+	/**
+	 * 将字节数组进行sha1编码
+	 *
+	 * @param data
+	 * @return
+	 */
+	public static byte[] sha1(byte[] data) {
+		return DigestUtils.sha1(data);
+	}
+
+	/**
+	 * 将字符串按指定的字符集进行sha1编码，返回16进制字符串
+	 *
+	 * @param data
+	 * @param charset
+	 * @return
+	 */
+	public static String sha1Hex(String data, String charset) {
+		return DigestUtils.sha1Hex(getBytes(data, charset));
+	}
+
 }
