@@ -139,4 +139,25 @@ public class CodecUtils {
 		return DigestUtils.sha256Hex(getBytes(data, charset));
 	}
 
+	/**
+	 * 将字节数组进行sha384编码
+	 *
+	 * @param data
+	 * @return
+	 */
+	public static byte[] sha384(byte[] data) {
+		return DigestUtils.sha384(data);
+	}
+
+	/**
+	 * 将字符串按指定的字符集进行sha384编码，返回16进制字符串
+	 *
+	 * @param data
+	 * @param charset
+	 * @return
+	 */
+	public static String sha384Hex(String data, String charset) {
+		return DigestUtils.sha384Hex(getBytes(data, charset));
+	}
+
 }
