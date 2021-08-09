@@ -19,7 +19,7 @@ public class StringUtils {
 	 * @param sizeInByte size in byte
 	 * @return fixed size String
 	 */
-	public static String fitToFixedSize(String source, String encoding, int sizeInByte)
+	public static String toFixedSize(String source, String encoding, int sizeInByte)
 			throws UnsupportedEncodingException {
 		if (source == null) {
 			source = "";
@@ -37,16 +37,16 @@ public class StringUtils {
 		}
 		String result = sb.toString();
 
-		return result + getBlanks(sizeInByte - size);
+		return result + getSpaces(sizeInByte - size);
 	}
 
 	/**
-	 * get blanks.
+	 * get spaces in size.
 	 *
-	 * @param sizeInByte blanks in byte
-	 * @return blank String
+	 * @param sizeInByte spaces in byte
+	 * @return spaces String
 	 */
-	public static String getBlanks(int sizeInByte) {
+	public static String getSpaces(int sizeInByte) {
 		if (sizeInByte <= 0) {
 			return "";
 		}
