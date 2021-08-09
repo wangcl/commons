@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class StringUtils {
 
-	public static final byte BLANK = (byte) 0x20;
+	public static final byte SPACE = (byte) 0x20;
 
 	/**
 	 * convert the source string into a fixed size string.
@@ -53,7 +53,7 @@ public class StringUtils {
 
 		byte[] bytes = new byte[sizeInByte];
 		for (int i = 0; i < sizeInByte; i++) {
-			bytes[i] = BLANK;
+			bytes[i] = SPACE;
 		}
 
 		return new String(bytes);
