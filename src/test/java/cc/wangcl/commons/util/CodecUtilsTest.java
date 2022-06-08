@@ -1,4 +1,4 @@
-package me.wangcl.commons.util;
+package cc.wangcl.commons.util;
 
 /**
  * @author wangcl

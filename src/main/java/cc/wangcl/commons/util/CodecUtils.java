@@ -1,4 +1,4 @@
-package me.wangcl.commons.util;
+package cc.wangcl.commons.util;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
