@@ -27,7 +27,7 @@ public class StringUtils {
 
 		StringBuilder sb = new StringBuilder();
 		int size = 0;
-		for (int i = 0; i < source.length(); i++) { // String.length returns the length of characters
+		for (int i = 0; i < source.length(); i++) { // String.length returns the length of code unit
 			char ch = source.charAt(i);
 			int charLength = String.valueOf(ch).getBytes(encoding).length; // get length (in byte) of each character
 			if (size + charLength <= sizeInByte) {
