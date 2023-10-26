@@ -1,8 +1,13 @@
 package cc.wangcl.commons.util;
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -53,6 +58,48 @@ public class StringUtilsTest {
 		assertNotNull(result);
 		assertEquals("abcde     ", result);
 		System.out.println("{" + result + "}");
+	}
+
+	@Test
+	public void testSplit() {
+		String src;
+		List<String> list;
+
+		src = "a.b.c";
+		list = StringUtils.split(src, ".");
+		System.out.println(list);
+
+		src = "a.b.";
+		list = StringUtils.split(src, ".");
+		System.out.println(list);
+
+		src = ".a.b";
+		list = StringUtils.split(src, ".");
+		System.out.println(list);
+
+		src = ".a.b.";
+		list = StringUtils.split(src, ".");
+		System.out.println(list);
+
+		src = ".a...b.";
+		list = StringUtils.split(src, ".");
+		System.out.println(list);
+
+		src = "a!^b!^c";
+		list = StringUtils.split(src, "!^");
+		System.out.println(list);
+
+		src = "!^a!^!^b!^!^c!^";
+		list = StringUtils.split(src, "!^");
+		System.out.println(list);
+
+		src = "!^";
+		list = StringUtils.split(src, "!^");
+		System.out.println(list);
+
+		src = "abc";
+		list = StringUtils.split(src, "!^");
+		System.out.println(list);
 	}
 
 }

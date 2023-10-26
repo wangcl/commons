@@ -1,6 +1,8 @@
 package cc.wangcl.commons.util;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * String utilities.
@@ -57,6 +59,33 @@ public class StringUtils {
 		}
 
 		return new String(bytes);
+	}
+
+	public static List<String> split(final String src, final String delimiter) {
+		if (src == null || src.isEmpty()) {
+			return new ArrayList<>(0);
+		}
+
+		List<String> list = new ArrayList<>();
+		final int slen = src.length();
+		final int dlen = delimiter.length();
+
+		int start = 0;
+		while (start <= slen) {
+			int index = src.indexOf(delimiter, start);
+			if (index == 0) {
+				list.add("");
+				start = index + dlen;
+			} else if (index > 0) {
+				list.add(src.substring(start, index));
+				start = index + dlen;
+			} else {
+				list.add(src.substring(start));
+				break;
+			}
+		}
+
+		return list;
 	}
 
 }
