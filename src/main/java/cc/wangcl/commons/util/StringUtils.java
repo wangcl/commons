@@ -74,23 +74,12 @@ public class StringUtils {
 		}
 
 		List<String> list = new ArrayList<>();
-		final int slen = src.length();
-		final int dlen = delimiter.length();
-
-		int start = 0;
-		while (start <= slen) {
-			int index = src.indexOf(delimiter, start);
-			if (index == 0) {
-				list.add("");
-				start = index + dlen;
-			} else if (index > 0) {
-				list.add(src.substring(start, index));
-				start = index + dlen;
-			} else {
-				list.add(src.substring(start));
-				break;
-			}
+		int start = 0, end;
+		while ((end = src.indexOf(delimiter, start)) >= 0) {
+			list.add(src.substring(start, end));
+			start = end + delimiter.length();
 		}
+		list.add(src.substring(start));
 
 		return list;
 	}
