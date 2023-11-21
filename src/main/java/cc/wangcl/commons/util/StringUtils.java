@@ -61,6 +61,13 @@ public class StringUtils {
 		return new String(bytes);
 	}
 
+	/**
+	 * split String with delimiter.
+	 *
+	 * @param src       source String
+	 * @param delimiter delimiter
+	 * @return List of Strings
+	 */
 	public static List<String> split(final String src, final String delimiter) {
 		if (src == null || src.isEmpty()) {
 			return new ArrayList<>(0);
