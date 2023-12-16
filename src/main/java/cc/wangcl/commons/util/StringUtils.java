@@ -2,6 +2,7 @@ package cc.wangcl.commons.util;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -52,9 +53,7 @@ public class StringUtils {
 		}
 
 		byte[] bytes = new byte[sizeInByte];
-		for (int i = 0; i < sizeInByte; i++) {
-			bytes[i] = SPACE;
-		}
+		Arrays.fill(bytes, SPACE);
 
 		return new String(bytes);
 	}
