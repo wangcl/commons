@@ -1,6 +1,6 @@
 package cc.wangcl.commons.util;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,15 +14,13 @@ public class StringUtils {
 	public static final byte SPACE = (byte) 0x20;
 
 	/**
-	 * convert the source string into a fixed size string.
+	 * convert the source string to a fixed size string in UTF-8.
 	 *
 	 * @param source     String to be converted
-	 * @param encoding   encoding
 	 * @param sizeInByte size in byte
 	 * @return fixed size String
 	 */
-	public static String toFixedSize(String source, String encoding, int sizeInByte)
-			throws UnsupportedEncodingException {
+	public static String toFixedSize(String source, int sizeInByte) {
 		if (source == null) {
 			source = "";
 		}
@@ -31,7 +29,7 @@ public class StringUtils {
 		int size = 0;
 		for (int i = 0; i < source.length(); i++) { // String.length returns the length of code unit
 			char ch = source.charAt(i);
-			int charLength = String.valueOf(ch).getBytes(encoding).length; // get length (in byte) of each character
+			int charLength = String.valueOf(ch).getBytes(StandardCharsets.UTF_8).length; // get length (in byte) of each character
 			if (size + charLength <= sizeInByte) {
 				sb.append(ch);
 				size += charLength;

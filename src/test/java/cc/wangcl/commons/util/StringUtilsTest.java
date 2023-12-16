@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -39,22 +38,21 @@ public class StringUtilsTest {
 	}
 
 	@Test
-	public void testToFixedSize() throws UnsupportedEncodingException {
+	public void testToFixedSize() {
 		String source = "中文字符串测试";
-		String encoding = "utf-8";
-		String result = StringUtils.toFixedSize(source, encoding, 10);
+		String result = StringUtils.toFixedSize(source, 10);
 		assertNotNull(result);
 		assertEquals(result.length(), 4); // characters
 		System.out.println("{" + result + "}");
 
 		source = "this is an English string";
-		result = StringUtils.toFixedSize(source, encoding, 9);
+		result = StringUtils.toFixedSize(source, 9);
 		assertNotNull(result);
 		assertEquals("this is a", result);
 		System.out.println("{" + result + "}");
 
 		source = "abcde";
-		result = StringUtils.toFixedSize(source, encoding, 10);
+		result = StringUtils.toFixedSize(source, 10);
 		assertNotNull(result);
 		assertEquals("abcde     ", result);
 		System.out.println("{" + result + "}");
