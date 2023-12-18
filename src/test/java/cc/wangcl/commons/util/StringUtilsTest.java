@@ -38,6 +38,16 @@ public class StringUtilsTest {
 	}
 
 	@Test
+	public void testToMaxSize() {
+		String source = "中文字符串测试";
+		String result = StringUtils.toMaxSize(source, 10);
+		assertNotNull(result);
+		assertEquals(result.length(), 3); // characters
+		assertEquals("中文字", result);
+		System.out.println("{" + result + "}");
+	}
+
+	@Test
 	public void testToFixedSize() {
 		String source = "中文字符串测试";
 		String result = StringUtils.toFixedSize(source, 10);
