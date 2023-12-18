@@ -15,6 +15,36 @@ public class StringUtils {
 	public static final byte SPACE = (byte) 0x20;
 
 	/**
+	 * truncate String into the max size in byte.
+	 *
+	 * @param source   source String
+	 * @param maxBytes max size in byte
+	 * @return String
+	 */
+	public static String toMaxSize(String source, int maxBytes) {
+		if (source == null || maxBytes <= 0) {
+			return "";
+		}
+
+		source = source.trim();
+		if (source.getBytes(StandardCharsets.UTF_8).length <= maxBytes) {
+			return source;
+		}
+
+		int index = 0, bytes = 0;
+		while (index < source.length()) {
+			int codePoint = source.codePointAt(index);
+			int len = new String(Character.toChars(codePoint)).getBytes(StandardCharsets.UTF_8).length;
+			bytes += len;
+			if (bytes > maxBytes) {
+				break;
+			}
+			index += Character.charCount(codePoint);
+		}
+		return source.substring(0, index);
+	}
+
+	/**
 	 * convert the source string to a fixed size string in UTF-8.
 	 *
 	 * @param source     String to be converted
