@@ -52,23 +52,26 @@ public class StringUtils {
 	 * @return fixed size String
 	 */
 	public static String toFixedSize(String source, int sizeInByte) {
+		if (sizeInByte <= 0) {
+			return "";
+		}
+
 		if (source == null) {
 			source = "";
 		}
 
-		StringBuilder sb = new StringBuilder();
-		int size = 0;
-		for (int i = 0; i < source.length(); i++) { // String.length returns the length of code unit
-			char ch = source.charAt(i);
-			int charLength = String.valueOf(ch).getBytes(StandardCharsets.UTF_8).length; // get length (in byte) of each character
-			if (size + charLength <= sizeInByte) {
-				sb.append(ch);
-				size += charLength;
+		int index = 0, bytes = 0;
+		while (index < source.length()) {
+			int codePoint = source.codePointAt(index);
+			int len = new String(Character.toChars(codePoint)).getBytes(StandardCharsets.UTF_8).length;
+			if (bytes + len > sizeInByte) {
+				break;
 			}
+			bytes += len;
+			index += Character.charCount(codePoint);
 		}
-		String result = sb.toString();
 
-		return result + getSpaces(sizeInByte - size);
+		return source.substring(0, index) + getSpaces(sizeInByte - bytes);
 	}
 
 	/**
