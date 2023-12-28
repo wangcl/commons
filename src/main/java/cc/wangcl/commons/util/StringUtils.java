@@ -21,7 +21,7 @@ public class StringUtils {
 	 * @param maxBytes max size in byte
 	 * @return String
 	 */
-	public static String toMaxSize(String source, int maxBytes) {
+	public static String truncate(String source, int maxBytes) {
 		if (source == null || maxBytes <= 0) {
 			return "";
 		}
