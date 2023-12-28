@@ -88,7 +88,7 @@ public class StringUtils {
 		byte[] bytes = new byte[sizeInByte];
 		Arrays.fill(bytes, SPACE);
 
-		return new String(bytes);
+		return new String(bytes, StandardCharsets.UTF_8);
 	}
 
 	/**
