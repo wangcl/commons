@@ -38,9 +38,9 @@ public class StringUtilsTest {
 	}
 
 	@Test
-	public void testTruncate() {
+	public void testLimit() {
 		String source = "中文字符串测试";
-		String result = StringUtils.truncate(source, 10);
+		String result = StringUtils.limit(source, 10);
 		assertNotNull(result);
 		assertEquals(result.length(), 3); // characters
 		assertEquals("中文字", result);
