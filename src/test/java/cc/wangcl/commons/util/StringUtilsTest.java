@@ -117,4 +117,11 @@ public class StringUtilsTest {
 		assertEquals(StringUtils.appendLetters("string", "x", 5), "stringxxxxx");
 	}
 
+	@Test
+	public void testPrependLetters() {
+		assertEquals(StringUtils.prependLetters("string", "x", 0), "string");
+		assertEquals(StringUtils.prependLetters("string", "x", -5), "string");
+		assertEquals(StringUtils.prependLetters("string", "x", 5), "xxxxxstring");
+	}
+
 }
