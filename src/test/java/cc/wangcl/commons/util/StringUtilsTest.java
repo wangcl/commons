@@ -110,4 +110,11 @@ public class StringUtilsTest {
 		System.out.println(list);
 	}
 
+	@Test
+	public void testAppendLetters() {
+		assertEquals(StringUtils.appendLetters("string", "x", 0), "string");
+		assertEquals(StringUtils.appendLetters("string", "x", -5), "string");
+		assertEquals(StringUtils.appendLetters("string", "x", 5), "stringxxxxx");
+	}
+
 }

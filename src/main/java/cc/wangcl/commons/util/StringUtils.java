@@ -114,4 +114,24 @@ public class StringUtils {
 		return list;
 	}
 
+	/**
+	 * append letters to a String.
+	 *
+	 * @param src    source String
+	 * @param letter letter to append
+	 * @param count  count of letters
+	 * @return String
+	 */
+	public static String appendLetters(String src, String letter, int count) {
+		if (count <= 0) {
+			return src;
+		}
+
+		StringBuilder sb = new StringBuilder(src);
+		for (int i = 0; i < count; i++) {
+			sb.append(letter);
+		}
+		return sb.toString();
+	}
+
 }
