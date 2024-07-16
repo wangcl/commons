@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class IntegerUtilsTest {
 
 	@BeforeClass
@@ -25,8 +27,10 @@ public class IntegerUtilsTest {
 	}
 
 	@Test
-	public void test() {
-
+	public void testToBinaryString() {
+		int i = 0;
+		String s = IntegerUtils.toBinaryString(i);
+		assertEquals(s, "00000000000000000000000000000000");
 	}
 
 }
