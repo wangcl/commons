@@ -162,7 +162,14 @@ public class StringUtils {
 	 * @return binary string
 	 */
 	public static String toBinaryString(int i) {
-		return toBinaryString(i, 4);
+		String s = Integer.toBinaryString(i);
+		int diffSize = s.length() % 8;
+		StringBuilder sb = new StringBuilder();
+		for (int j = 0; j < diffSize; j++) {
+			sb.append("0");
+		}
+		sb.append(s);
+		return sb.toString().toUpperCase();
 	}
 
 	/**
