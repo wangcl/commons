@@ -163,7 +163,7 @@ public class StringUtils {
 	 */
 	public static String toBinaryString(int i) {
 		String s = Integer.toBinaryString(i);
-		int diffSize = s.length() % 8;
+		int diffSize = 8 - s.length() % 8;
 		StringBuilder sb = new StringBuilder();
 		for (int j = 0; j < diffSize; j++) {
 			sb.append("0");
