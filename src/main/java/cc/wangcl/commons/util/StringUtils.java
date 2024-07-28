@@ -193,4 +193,29 @@ public class StringUtils {
 		return sb.toString().toUpperCase();
 	}
 
+	/**
+	 * mask source String using "*", from offset and lasting length size.
+	 *
+	 * @param src    source string
+	 * @param offset offset
+	 * @param length size of bytes
+	 * @return masking string
+	 */
+	public static String mask(String src, int offset, int length) {
+		if (src == null || src.isEmpty()) return "";
+
+		if (offset >= src.length() || length == 0) return src;
+
+		while (offset < 0) offset += src.length(); // negative offset means "from right to left"
+		if (offset + length > src.length()) length = src.length() - offset;
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(src, 0, offset);
+		for (int i = 0; i < length; i++) {
+			sb.append("*");
+		}
+		sb.append(src, offset + length, src.length());
+		return sb.toString();
+	}
+
 }
