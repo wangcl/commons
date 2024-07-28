@@ -124,4 +124,21 @@ public class StringUtilsTest {
 		assertEquals(StringUtils.prependLetters("string", "x", 5), "xxxxxstring");
 	}
 
+	@Test
+	public void testToBinaryString() {
+		int i = 0;
+		assertEquals("00000000", StringUtils.toBinaryString(i));
+		i = 64;
+		assertEquals("01000000", StringUtils.toBinaryString(i));
+		i = 127;
+		assertEquals("01111111", StringUtils.toBinaryString(i));
+		i = 128;
+		assertEquals("10000000", StringUtils.toBinaryString(i));
+		i = 256;
+		assertEquals("0000000100000000", StringUtils.toBinaryString(i));
+
+		i = -1;
+		assertEquals("11111111111111111111111111111111", StringUtils.toBinaryString(i));
+	}
+
 }
