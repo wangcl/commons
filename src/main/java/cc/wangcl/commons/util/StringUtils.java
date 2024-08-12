@@ -202,12 +202,20 @@ public class StringUtils {
 	 * @return masking string
 	 */
 	public static String mask(String src, int offset, int length) {
-		if (src == null || src.isEmpty()) return "";
+		if (src == null || src.isEmpty()) {
+			return "";
+		}
 
-		if (offset >= src.length() || length == 0) return src;
+		if (offset >= src.length() || length <= 0) {
+			return src;
+		}
 
-		while (offset < 0) offset += src.length(); // negative offset means "from right to left"
-		if (offset + length > src.length()) length = src.length() - offset;
+		while (offset < 0) { // negative offset means "from right to left"
+			offset += src.length();
+		}
+		if (offset + length > src.length()) {
+			length = src.length() - offset;
+		}
 
 		StringBuilder sb = new StringBuilder();
 		sb.append(src, 0, offset);
