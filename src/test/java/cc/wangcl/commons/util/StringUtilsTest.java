@@ -141,4 +141,17 @@ public class StringUtilsTest {
 		assertEquals("11111111111111111111111111111111", StringUtils.toBinaryString(i));
 	}
 
+	@Test
+	public void testMask() {
+		assertEquals("", StringUtils.mask(null, 1, 2));
+		assertEquals("", StringUtils.mask("", 1, 2));
+
+		String s = "1234567890";
+		assertEquals("1234567890", StringUtils.mask(s, 20, 4));
+		assertEquals("1234567890", StringUtils.mask(s, 4, -1));
+		assertEquals("1234******", StringUtils.mask(s, 4, 20));
+		assertEquals("1234****90", StringUtils.mask(s, 4, 4));
+		assertEquals("123456**90", StringUtils.mask(s, -4, 2));
+	}
+
 }
