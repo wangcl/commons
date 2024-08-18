@@ -139,6 +139,11 @@ public class StringUtilsTest {
 
 		i = -1;
 		assertEquals("11111111111111111111111111111111", StringUtils.toBinaryString(i));
+
+		i = 23;
+		assertEquals("00010111", StringUtils.toBinaryString(i, 1));
+		i = 257;
+		assertEquals("0000000100000001", StringUtils.toBinaryString(i, 2));
 	}
 
 	@Test
